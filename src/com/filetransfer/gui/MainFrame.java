@@ -26,7 +26,7 @@ public class MainFrame extends JFrame {
     private JTextArea resultArea;              // 显示传输结果的文本区域
     private File selectedFile;                 // 已选择的文件
     private DefaultListModel<String> targetListModel;  // 目标主机列表的模型
-    private String saveDirectory = "received_files";   // 指定文件保存目录
+    private String saveDirectory = "D:/";   // 指定文件保存目录
 
     public MainFrame() {
         // 设置窗口标题和大小
