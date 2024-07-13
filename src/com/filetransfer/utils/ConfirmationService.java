@@ -13,8 +13,8 @@ public class ConfirmationService {
     public void sendConfirmation(String targetHost) throws Exception {
         try (DatagramSocket socket = new DatagramSocket()) { // 创建DatagramSocket
             byte[] sendData = CONFIRMATION_MESSAGE.getBytes(); // 将确认消息转换为字节数组
-            DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, InetAddress.getByName(targetHost), CONFIRMATION_PORT);
-            socket.send(sendPacket); // 发送确认消息
+            DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, InetAddress.getByName(targetHost), CONFIRMATION_PORT); // 创建数据报包
+            socket.send(sendPacket); // 发送确认消息数据包
         }
     }
 
@@ -22,8 +22,8 @@ public class ConfirmationService {
     public boolean receiveConfirmation() {
         try (DatagramSocket socket = new DatagramSocket(CONFIRMATION_PORT)) { // 创建DatagramSocket并绑定到确认端口
             byte[] buffer = new byte[1024]; // 缓冲区用于接收数据
-            DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
-            socket.receive(packet); // 接收确认消息
+            DatagramPacket packet = new DatagramPacket(buffer, buffer.length); // 创建数据报包
+            socket.receive(packet); // 接收确认消息数据包
             String message = new String(packet.getData(), 0, packet.getLength()); // 将接收到的数据转换为字符串
             return CONFIRMATION_MESSAGE.equals(message); // 检查接收到的消息是否为确认消息
         } catch (Exception e) {

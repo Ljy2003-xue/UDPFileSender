@@ -14,12 +14,12 @@ public class RetryMechanism {
 
     // 构造函数，初始化线程池
     public RetryMechanism() {
-        executorService = Executors.newCachedThreadPool();
+        executorService = Executors.newCachedThreadPool(); // 使用缓存线程池
     }
 
     // 带重试机制的发送文件方法
     public boolean sendWithRetry(String targetHost, File file) {
-        int attempts = 0; // 尝试次数
+        int attempts = 0; // 尝试次数初始化为0
         while (attempts < MAX_RETRIES) { // 当尝试次数小于最大重试次数时
             try {
                 FileSenderThread senderThread = new FileSenderThread(targetHost, file); // 创建文件发送线程
