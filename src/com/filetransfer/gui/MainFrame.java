@@ -13,8 +13,6 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class MainFrame extends JFrame {
     // 定义选择文件按钮
