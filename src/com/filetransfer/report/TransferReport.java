@@ -9,7 +9,7 @@ public class TransferReport {
 
     // 构造函数，初始化report Map
     public TransferReport() {
-        report = new HashMap<>();
+        report = new HashMap<>(); // 初始化report为一个空的HashMap
     }
 
     // 添加传输报告的方法
@@ -24,7 +24,7 @@ public class TransferReport {
 
     // 打印传输报告的方法
     public void printReport() {
-        report.forEach((host, result) -> System.out.println("Host: " + host + ", Result: " + result));
         // 遍历report Map，并打印每个目标主机的传输结果
+        report.forEach((host, result) -> System.out.println("Host: " + host + ", Result: " + result));
     }
 }

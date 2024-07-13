@@ -12,15 +12,15 @@ public class FileSenderThread implements Callable<Boolean> {
 
     // 构造函数，初始化目标主机地址和文件
     public FileSenderThread(String targetHost, File file) {
-        this.targetHost = targetHost;
-        this.file = file;
+        this.targetHost = targetHost; // 初始化目标主机地址
+        this.file = file; // 初始化文件
         this.sender = new UDPFileSender(); // 初始化UDPFileSender对象
     }
 
     @Override
     public Boolean call() {
         try {
-            sender.sendFile(targetHost, file); // 发送文件
+            sender.sendFile(targetHost, file); // 调用UDPFileSender的sendFile方法发送文件
             return true; // 返回成功
         } catch (Exception e) {
             e.printStackTrace(); // 打印异常信息
